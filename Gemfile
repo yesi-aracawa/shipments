@@ -3,6 +3,12 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.8'
 
+#to allow us to hide our API key and password in a .env file:
+gem 'dotenv-rails', groups: [:development, :test]
+#to allow us to easily make requests to Shopify's REST API
+gem 'rest-client'
+#to make cross-origin AJAX possible
+gem 'rack-cors'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.4'
 # Use postgresql as the database for Active Record
@@ -26,6 +32,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
+gem 'activemodel-serializers-xml', '~> 1.0', '>= 1.0.2'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use ActiveStorage variant
@@ -61,3 +68,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem "shopify_app", "~> 17.0"
