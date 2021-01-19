@@ -1,0 +1,19 @@
+<!DOCTYPE>
+<html>
+<head>
+    <title>ORDER VIEW</title>
+</head>
+
+<body>
+    <div>
+        <% @orders['orders'].each do |element| %>
+               <p>Order id: <%= element['id'] %></p>
+               <p>Total price: <%= element['total_price'] %></p>
+               <p>Subtotal Price: <%= element['subtotal_price'] %></p>
+               <p>Order Number: <%= element['order_number'] %></p>
+        <% end %>
+    </div>
+</body>
+
+<%= link_to 'Orders', orders_path(@orders) %>
+</html>
