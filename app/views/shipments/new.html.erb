@@ -1,8 +1,15 @@
-<%= form_for :shipment do |f| %>
+<%= form_for :shipment, url: createshipment_path do |s| %>
+    <h3>SHIMPENT DATA</h3>
+
+    <p>Order Number: <%=s.label :order_number %> </p>
+    <p>Order Number: <%=s.label :order_number %> </p>
+    <p>SKU: <%=s.label :sku %></p>
+    <p>Deliver Customer Name: <%=s.label :deliver_name %></p>
+    <p>Total Price: <%=s.label :total_price %></p>
+    <p>Subtotal Price: <%=s.label :subtotal_price %></p>
+    <p>Status: <%=s.label :status %></p>
+
     <p>
-      SHIMPENT DATA
+      <%= s.submit %>
     </p>
-    <p>
-      <%= f.submit %>
-    </p>
-  <% end %>
+<% end %>

@@ -6,17 +6,19 @@
 
 <body>
     <div>
+        <%= @order_data = Order.new %>
         <% @orders['orders'].each do |element| %>
-            <p>Order id: <%= element['id'] %></p>
+            <p>Order id: <%= @order_data.id = element['id'] %></p>
             <p>Total price: <%= element['total_price'] %></p>
             <p>Subtotal Price: <%= element['subtotal_price'] %></p>
             <p>Order Number: <%= element['order_number'] %></p>
-            <p> Status: <%= Order.new.payment = element['financial_status']%></p>
+            <p> Status: <%= @order_data.payment = element['financial_status']%></p>
             <% element['line_items'].each do |t| %>
-                <p> Sku: <%= Order.new.products = t['sku']%></p>
-                <p> Description: <%= Order.new.reference = t['title']%> </p>
+                <p> Sku: <%= @order_data.products = t['sku']%></p>
+                <p> Description: <%= @order_data.reference = t['title']%> </p>
             <% end %>
             <p>Deliver Customer Name: <%= element['shipping_address']['name'] %></p>
+            <p>Customer Email: <%= @order_data.courier = element['email']%></p>
             <p>Delivering Addres: <%= "Addres1: #{element['shipping_address']['addres1']},
             City: #{element['shipping_address']['city']}, 
             Country #{element['shipping_address']['country']}
@@ -25,13 +27,11 @@
             ZIP: #{element['shipping_address']['zip']},
             Country Code: #{element['shipping_address']['country_code']},
             province Code: #{element['shipping_address']['province_code']}" %></p>
+            <p><%= button_to "Make Shipment", newshipment_path, method: :get %></p>
         <% end %>
     </div>
-    <p>
-        send shipment <%= submit_tag %>
-    </p>
+
 </body>
 
-<%= link_to 'Orders', orders_path(@orders) %>
 <%= link_to 'Order', orders_path(@order) %>
 </html>
