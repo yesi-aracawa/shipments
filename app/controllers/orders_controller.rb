@@ -7,6 +7,9 @@ class OrdersController < ApplicationController
             }).execute
         @orders = JSON.parse(response)
         #render json: @orders
-        
+    end
+
+    def show_id
+        @order = Order.find(params[:id])
     end
   end

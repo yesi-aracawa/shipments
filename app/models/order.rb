@@ -1,4 +1,5 @@
 class Order < ApplicationRecord
+    attr_accessor :id
     attr_accessor :payment
     attr_accessor :products
     attr_accessor :origin
