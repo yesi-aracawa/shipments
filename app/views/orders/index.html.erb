@@ -1,0 +1,36 @@
+<!DOCTYPE>
+<html>
+<head>
+    <title>ORDER VIEW</title>
+</head>
+
+<body>
+    <div>
+        <% @orders['orders'].each do |element| %>
+            <p>Order id: <%= element['id'] %></p>
+            <p>Total price: <%= element['total_price'] %></p>
+            <p>Subtotal Price: <%= element['subtotal_price'] %></p>
+            <p>Order Number: <%= element['order_number'] %></p>
+            <p> Status: <%= Order.new.payment = element['financial_status']%></p>
+            <% element['line_items'].each do |t| %>
+                <p> Sku: <%= Order.new.products = t['sku']%></p>
+                <p> Description: <%= Order.new.reference = t['title']%> </p>
+            <% end %>
+            <p>Deliver Customer Name: <%= element['shipping_address']['name'] %></p>
+            <p>Delivering Addres: <%= "Addres1: #{element['shipping_address']['addres1']},
+            City: #{element['shipping_address']['city']}, 
+            Country #{element['shipping_address']['country']}
+            Province: #{element['shipping_address']['province']},
+            Addres2: #{element['shipping_address']['addres2']}
+            ZIP: #{element['shipping_address']['zip']},
+            Country Code: #{element['shipping_address']['country_code']},
+            province Code: #{element['shipping_address']['province_code']}" %></p>
+        <% end %>
+    </div>
+    <p>
+        send shipment <%= submit_tag %>
+    </p>
+</body>
+
+<%= link_to 'Orders', orders_path(@orders) %>
+</html>
