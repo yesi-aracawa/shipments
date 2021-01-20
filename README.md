@@ -1,24 +1,26 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## SHIPMENTS/ORDERS
 
-Things you may want to cover:
+- Ruby version: 2.5
 
-* Ruby version
+- Rails version: '~> 5.2.4', '>= 5.2.4.4'
 
-* System dependencies
+- Docker: if you want to run this environment on docker, make docker-compose --build, or restart an image docker-compose up
 
-* Configuration
+  - for interaction: docker exec -it shipments_web_1 bash
 
-* Database creation
+- Configuration:
 
-* Database initialization
+  - bundle install
+  - rails db:migrate
+  - rails start / rails restart
 
-* How to run the test suite
+- Database creation
 
-* Services (job queues, cache servers, search engines, etc.)
+  - Made it from docker image and PostgreSQL
 
-* Deployment instructions
-
-* ...
+- Docs
+  - Shopify: https://shopify.dev/docs/admin-api/rest/reference/orders
+  - Docker: https://docs.docker.com/compose/rails/
+  - Rails: https://rubyonrails.org/
